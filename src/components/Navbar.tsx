@@ -63,19 +63,6 @@ function Navbar() {
           </NavLink>
 
           <NavLink 
-            to="/about" 
-            className={({ isActive }) => 
-              `text-sm font-semibold transition-colors hover:text-indigo-600 ${
-                isActive 
-                  ? 'text-indigo-600' 
-                  : 'text-slate-600'
-              }`
-            }
-          >
-            {t.nav.about}
-          </NavLink>
-
-          <NavLink 
             to="/contact" 
             className={({ isActive }) => 
               `text-sm font-semibold transition-colors hover:text-indigo-600 ${
@@ -87,6 +74,15 @@ function Navbar() {
           >
             {t.nav.contact}
           </NavLink>
+
+          <a 
+            href="/HangDTT_SoftwareEngineer_CV.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold transition-colors text-slate-600 hover:text-indigo-600"
+          >
+            {t.nav.cv}
+          </a>
         </nav>
 
         {/* Quick controls */}
@@ -98,7 +94,7 @@ function Navbar() {
               onBlur={() => setTimeout(() => setLangDropdownOpen(false), 200)}
               className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
             >
-              <Globe className="h-3.5 w-3.5 text-slate-550" />
+              <Globe className="h-3.5 w-3.5 text-slate-500" />
               <span>{activeLangLabel}</span>
               <ChevronDown className="h-3.5 w-3.5 text-slate-500" />
             </button>
@@ -112,7 +108,7 @@ function Navbar() {
                     className={`flex w-full items-center rounded-md px-3 py-2 text-left text-xs font-semibold transition-colors hover:bg-slate-50 ${
                       language === lang.code 
                         ? 'text-indigo-600' 
-                        : 'text-slate-750'
+                        : 'text-slate-700'
                     }`}
                   >
                     {lang.label}
@@ -128,7 +124,7 @@ function Navbar() {
           {/* Mobile Hamburger Menu Toggle */}
           <button
             onClick={toggleMobileMenu}
-            className="rounded-lg border border-slate-200 p-2 text-slate-700 hover:bg-slate-55 transition-colors"
+            className="rounded-lg border border-slate-200 p-2 text-slate-700 hover:bg-slate-50 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -157,20 +153,22 @@ function Navbar() {
             </NavLink>
 
             <NavLink 
-              to="/about" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-semibold text-slate-800 hover:text-indigo-600"
-            >
-              {t.nav.about}
-            </NavLink>
-
-            <NavLink 
               to="/contact" 
               onClick={() => setMobileMenuOpen(false)}
               className="text-base font-semibold text-slate-800 hover:text-indigo-600"
             >
               {t.nav.contact}
             </NavLink>
+
+            <a 
+              href="/HangDTT_SoftwareEngineer_CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-base font-semibold text-slate-800 hover:text-indigo-600"
+            >
+              {t.nav.cv}
+            </a>
           </nav>
 
           <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">

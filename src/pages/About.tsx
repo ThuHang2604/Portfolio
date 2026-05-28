@@ -29,7 +29,7 @@ function About() {
             <p className="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mt-2">
               {t.hero.role}
             </p>
-            <p className="mt-4 text-slate-600 dark:text-slate-450 leading-relaxed text-sm md:text-base">
+            <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed text-sm md:text-base">
               {t.about.intro}
             </p>
           </div>
@@ -47,7 +47,7 @@ function About() {
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
               {t.about.orientationTitle}
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-450 leading-relaxed mt-2">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
               {t.about.orientationDesc}
             </p>
           </div>
@@ -62,7 +62,7 @@ function About() {
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
               {t.about.goalsTitle}
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-450 leading-relaxed mt-2">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
               {t.about.goalsDesc}
             </p>
           </div>
@@ -77,7 +77,7 @@ function About() {
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
               Core Principles
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-455 leading-relaxed mt-2">
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-2">
               Prioritizing database efficiency, writing clean testable code (Jest/JUnit), building secure APIs (JWT, HTTPS, input validation), and working in fast-paced Agile sprint teams.
             </p>
           </div>

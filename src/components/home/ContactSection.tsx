@@ -76,13 +76,15 @@ function ContactSection() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <Link
-              to="/contact"
+            <a
+              href="/HangDTT_SoftwareEngineer_CV.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900 px-6 py-4 text-sm font-semibold text-slate-800 dark:text-slate-200 transition-all duration-300 shadow-xs"
             >
               <FileText className="h-4 w-4 text-slate-400" />
               <span>{t.contact.printCvBtn}</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

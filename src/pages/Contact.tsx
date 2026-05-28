@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { Link } from "react-router-dom";
 import { useLanguage } from "../components/LanguageContext";
 import { Mail, Phone, MapPin, Send, FileText, CheckCircle } from "lucide-react";
 
@@ -93,13 +92,15 @@ function Contact() {
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
                 Curriculum Vitae
               </h3>
-              <Link
-                to="/cv"
+              <a
+                href="/HangDTT_SoftwareEngineer_CV.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 px-6 py-4 text-sm font-semibold text-white shadow-md shadow-indigo-500/10 transition-all duration-300"
               >
                 <FileText className="h-4.5 w-4.5" />
                 <span>{t.contact.printCvBtn}</span>
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -107,7 +108,7 @@ function Contact() {
           <div className="lg:col-span-7 rounded-3xl border border-slate-100 dark:border-slate-800 p-8 md:p-10 bg-white dark:bg-slate-950 shadow-xs flex flex-col justify-between">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center text-center h-full py-12">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-450 border border-emerald-200 dark:border-emerald-900/60 mb-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/60 mb-6">
                   <CheckCircle className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-950 dark:text-white">

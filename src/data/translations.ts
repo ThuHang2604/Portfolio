@@ -32,6 +32,8 @@ export interface TranslationSchema {
     orientationDesc: string;
     goalsTitle: string;
     goalsDesc: string;
+    valuesTitle: string;
+    valuesDesc: string;
   };
   skills: {
     title: string;
@@ -98,11 +100,11 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       projects: "Projects",
       about: "About Me",
       contact: "Contact",
-      cv: "Interactive CV",
+      cv: "CV",
     },
     hero: {
       greeting: "Hello, my name is",
-      name: "DO THI THU HANG",
+      name: "Thu Hang",
       role: "Software Engineer",
       tagline: "Backend-focused full-stack developer with hands-on experience building web applications using Spring Boot, Node.js, ReactJS, and SQL databases. Interested in scalable backend systems and secure software development.",
       viewProjects: "View Projects",
@@ -116,11 +118,13 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       orientationDesc: "I have specifically chosen to specialize in backend systems because I find great satisfaction in building the architecture that powers modern digital platforms. Designing data flows, ensuring high availability, and securing web interfaces are my primary focuses. I aim to master distributed systems, microservices design, and containerized deployments.",
       goalsTitle: "Career Goals",
       goalsDesc: "My short-term goal is to integrate into a professional engineering team where I can contribute to real-world applications using Spring Boot and Node.js while learning industry best practices. In the long-term, I aspire to become a Backend Solutions Architect, designing enterprise-level, high-throughput software architectures.",
+      valuesTitle: "Core Values",
+      valuesDesc: "Prioritizing database efficiency, writing clean testable code (Jest/JUnit), building secure APIs (JWT, HTTPS, input validation), and collaborating in fast-paced Agile sprint teams.",
     },
     skills: {
       title: "Skills & Technologies",
-      frontend: "Frontend Development",
-      backend: "Backend Development",
+      frontend: "Frontend",
+      backend: "Backend",
       tools: "Tools & DevOps",
       databases: "Databases",
     },
@@ -218,11 +222,11 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       projects: "Dự án",
       about: "Giới thiệu",
       contact: "Liên hệ",
-      cv: "CV Tương tác",
+      cv: "CV",
     },
     hero: {
       greeting: "Xin chào, tôi là",
-      name: "ĐỖ THỊ THU HẰNG",
+      name: "Thu Hằng",
       role: "Kỹ sư Phần mềm",
       tagline: "Nhà phát triển Full-stack định hướng Backend, có kinh nghiệm thực tế xây dựng ứng dụng web bằng Spring Boot, Node.js, ReactJS và cơ sở dữ liệu SQL. Đam mê thiết kế các hệ thống backend mở rộng và phát triển phần mềm bảo mật.",
       viewProjects: "Xem các Dự án",
@@ -236,11 +240,13 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       orientationDesc: "Tôi lựa chọn chuyên sâu về các hệ thống backend vì cảm thấy rất hứng thú khi xây dựng kiến trúc làm nền tảng cho các ứng dụng số hiện đại. Thiết kế dòng chảy dữ liệu, đảm bảo hệ thống có độ sẵn sàng cao và bảo mật các giao diện web là mục tiêu chính của tôi. Tôi hướng tới làm chủ các hệ thống phân tán, thiết kế microservices và triển khai ứng dụng bằng container.",
       goalsTitle: "Mục tiêu nghề nghiệp",
       goalsDesc: "Mục tiêu ngắn hạn của tôi là tham gia vào một đội ngũ kỹ sư chuyên nghiệp, nơi tôi có thể đóng góp xây dựng các ứng dụng thực tế sử dụng Spring Boot và Node.js, đồng thời học hỏi các quy chuẩn công nghiệp. Về dài hạn, tôi mong muốn trở thành một Kiến trúc sư Giải pháp Backend (Backend Solutions Architect), tự tay thiết kế các kiến trúc phần mềm quy mô lớn và lưu lượng truy cập cao.",
+      valuesTitle: "Giá trị cốt lõi",
+      valuesDesc: "Ưu tiên tối ưu hóa hiệu năng cơ sở dữ liệu, viết mã nguồn sạch dễ kiểm thử (Jest/JUnit), xây dựng API bảo mật (JWT, HTTPS, kiểm thực dữ liệu đầu vào) và cộng tác hiệu quả trong các đội ngũ Agile sprint.",
     },
     skills: {
       title: "Kỹ năng & Công nghệ",
-      frontend: "Phát triển Frontend",
-      backend: "Phát triển Backend",
+      frontend: "Frontend",
+      backend: "Backend",
       tools: "Công cụ & DevOps",
       databases: "Cơ sở dữ liệu",
     },
@@ -338,11 +344,11 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       projects: "Projets",
       about: "À Propos",
       contact: "Contact",
-      cv: "CV Interactif",
+      cv: "CV",
     },
     hero: {
       greeting: "Bonjour, je m'appelle",
-      name: "DO THI THU HANG",
+      name: "Thu Hang",
       role: "Ingénieur Logiciel",
       tagline: "Développeuse Full-stack orientée Backend, avec une expérience pratique dans la création d'applications web en utilisant Spring Boot, Node.js, ReactJS et bases de données SQL. Intéressée par les systèmes backend évolutifs et le développement sécurisé.",
       viewProjects: "Voir les projets",
@@ -356,11 +362,13 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
       orientationDesc: "J'ai choisi de me spécialiser dans le backend car j'éprouve une grande satisfaction à concevoir l'architecture qui propulse les applications numériques modernes. Mes priorités sont la conception de flux de données, la garantie d'une haute disponibilité et la sécurisation des échanges. Mon but est de maîtriser les systèmes distribués, le microservices et le déploiement containerisé.",
       goalsTitle: "Objectifs de Carrière",
       goalsDesc: "Mon objectif à court terme est de rejoindre une équipe d'ingénierie professionnelle où je pourrai contribuer à des applications réelles avec Spring Boot et Node.js. À long terme, j'aspire à devenir Architecte Solutions Backend, en concevant des architectures logicielles d'entreprise à haut débit.",
+      valuesTitle: "Valeurs Fondamentales",
+      valuesDesc: "Prioriser l'efficacité des bases de données, écrire du code propre et testable (Jest/JUnit), concevoir des API sécurisées (JWT, HTTPS, validation des entrées) et collaborer dans des équipes Agile en sprint.",
     },
     skills: {
       title: "Compétences & Technologies",
-      frontend: "Développement Frontend",
-      backend: "Développement Backend",
+      frontend: "Frontend",
+      backend: "Backend",
       tools: "Outils & DevOps",
       databases: "Bases de données",
     },
