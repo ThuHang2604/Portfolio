@@ -40,7 +40,7 @@ function ProjectsSection() {
                 {/* Image panel */}
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-900">
                   <img
-                    src="/default.jpg"
+                    src={project.slides?.[0]?.src || "/default.jpg"}
                     alt={project.title}
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                   />
