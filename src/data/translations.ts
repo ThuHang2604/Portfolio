@@ -1,3 +1,9 @@
+export interface SlideTranslation {
+  src: string;
+  label: string;
+  desc: string;
+}
+
 export interface ProjectTranslation {
   title: string;
   shortDesc: string;
@@ -6,6 +12,17 @@ export interface ProjectTranslation {
   problems: string;
   solutions: string;
   techStack: string[];
+  githubFront?: string;
+  githubBack?: string;
+  slides?: SlideTranslation[];
+  academicInstitution?: string;
+  projectCode?: string;
+  teamTitle?: string;
+  teamMembers?: string[];
+  supervisorTitle?: string;
+  supervisorName?: string;
+  featuresTitle?: string;
+  featuresScope?: string[];
 }
 
 export interface TranslationSchema {
@@ -179,7 +196,66 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Solves the limitation of standard 2D image catalogs which lead to customer uncertainty about furniture sizes and shapes, and streamlines warehouse stock tracking with immediate sync.",
           problems: "Rendering multiple heavy 3D assets on low-end client devices caused significant UI lag. Real-time chat threads would lose synchrony if connections flickered.",
           solutions: "Implemented lazy loading and level-of-detail optimization for three.js components, reducing polygon counts. Designed a robust Socket.io event queue with local storage fallback to handle connection drops seamlessly.",
-          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"]
+          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"],
+          githubFront: "https://github.com/TonTon1410/furnimart-web",
+          githubBack: "https://github.com/Oggie26/FurniMart-BE",
+          academicInstitution: "FPT University (HCM, 12/2024)",
+          projectCode: "FA25SE153 | Team GFA25SE147",
+          teamTitle: "Capstone Project Team",
+          teamMembers: [
+            "Phan Hoàng Nam (Leader) - SE173453",
+            "Phạm Văn Toàn - SE172763",
+            "Lê Nguyễn Thanh Phong - SE130383",
+            "Đỗ Thị Thu Hằng - SE161271",
+            "Trần Ngọc Yên Thảo - SE161001"
+          ],
+          supervisorTitle: "Academic Supervisor",
+          supervisorName: "Mr. Nguyễn Minh Sang",
+          featuresTitle: "Core Modules & Features",
+          featuresScope: [
+            "FE-01: Multi-role Authentication (Customer, Store Staff, Delivery, Manager, Admin)",
+            "FE-02: Interactive Client Store (3D Product viewer, dynamic filters, instant checkout)",
+            "FE-04 & FE-05: Seller & Manager dashboard (Inventory alerts, order status logs, sales reports)",
+            "FE-06 & FE-10: Internal delivery map grid & visual warehouse layouts",
+            "FE-11: Real-time messaging (Socket.io Customer support chat & push updates)"
+          ],
+          slides: [
+            {
+              src: "/furnimart-image/home-page.png",
+              label: "Customer Landing Homepage",
+              desc: "A minimalist e-commerce landing page showing the hero banner and navigation promoting the online interactive 3D furniture viewer."
+            },
+            {
+              src: "/furnimart-image/product-catalog.png",
+              label: "Client-side Products Grid & Filtering",
+              desc: "User catalog interface displaying categories, descriptions, price tags, and category filters for items."
+            },
+            {
+              src: "/furnimart-image/product-detail-3d.png",
+              label: "Interactive 3D & AR Viewer Page",
+              desc: "Enables customers to zoom, rotate, and interact with 3D product models using WebGL and Three.js, alongside specific item specifications."
+            },
+            {
+              src: "/furnimart-image/checkout-out.png",
+              label: "Checkout Confirmation & Payment Selection",
+              desc: "Billing information and checkout page containing cart summary, delivery address configuration, and payment option selectors (VNPAY/COD)."
+            },
+            {
+              src: "/furnimart-image/pos-dashboard.png",
+              label: "POS Counter Sales Dashboard Terminal",
+              desc: "A comprehensive dark-mode checkout panel for store clerks, supporting real-time product search, cart management, and Leaflet map location pickers."
+            },
+            {
+              src: "/furnimart-image/dashboard-seller.png",
+              label: "Seller/Employee Workspace Dashboard",
+              desc: "Operational dashboard showing order approvals, inventory alert metrics, performance analysis charts, and active customer chat list."
+            },
+            {
+              src: "/furnimart-image/warehouse-layout.png",
+              label: "Interactive Warehouse Layout Grid Map",
+              desc: "A real-time 2D grid mapping warehouse storage bins, color-coded by occupancy, with sidebars listing details of items stored in each shelf slot."
+            }
+          ]
         },
         trading: {
           title: "Second-Hand EV & Battery Trading Platform with Real-Time Chat & PayPal Integration",
@@ -188,7 +264,51 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Addresses the lack of dedicated, secure platforms for EV components where buyer-seller communication and verified battery health metrics are critical for transaction trust.",
           problems: "Securing financial transaction endpoints against tampering and dealing with complex, nested MySQL database schemas for car-battery pairings.",
           solutions: "Implemented PayPal SDK with backend payment capture verification, using webhook confirmations. Constructed optimized indexing on MySQL schemas with Sequelize ORM to prevent slow database queries on listings.",
-          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"]
+          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"],
+          githubFront: "https://github.com/PhanKhanhSE/used-ev-battery-marketplace-frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU-SWP391-Fall2025-BackEnd",
+          slides: [
+            {
+              src: "/ev-battery-image/home-page.png",
+              label: "Marketplace Landing Page",
+              desc: "Marketplace homepage listing featured EV cars and battery packs, current promotions, and trading market guidelines."
+            },
+            {
+              src: "/ev-battery-image/login.png",
+              label: "Secure Portal Login Entrance",
+              desc: "An elegant login and registration page for buyers and sellers, highlighting member benefits like quick listing creation, smart comparison, and escrow battery contracts."
+            },
+            {
+              src: "/ev-battery-image/search.png",
+              label: "Catalog Search & Filters",
+              desc: "Advanced search engine allowing users to filter electric vehicles and batteries by manufacturer, price range, location, and State of Health (SoH)."
+            },
+            {
+              src: "/ev-battery-image/detail.png",
+              label: "EV / Battery Product Details",
+              desc: "Comprehensive detail page showing EV specifications, battery health reports, safety certificates, and seller contact card."
+            },
+            {
+              src: "/ev-battery-image/post-page.png",
+              label: "Create New Sale Listing",
+              desc: "Intuitive form for registered sellers to publish new EV or battery listings, upload pictures, and define technical metrics."
+            },
+            {
+              src: "/ev-battery-image/chat.png",
+              label: "Real-time Buyer-Seller Chat",
+              desc: "Direct messaging chat screen utilizing Socket.io, enabling prompt trade negotiations and coordination between buyers and sellers."
+            },
+            {
+              src: "/ev-battery-image/admin-dashboard.png",
+              label: "System Admin Console",
+              desc: "Administrator dashboard workspace to monitor registered users, moderate trading posts, view transaction logs, and manage system alerts."
+            },
+            {
+              src: "/ev-battery-image/api-docs_.png",
+              label: "Backend Swagger REST API Docs",
+              desc: "Interactive OpenAPI/Swagger documentation outlining all system server routes and API payloads, aiding frontend connection."
+            }
+          ]
         },
         quiz: {
           title: "Online Quiz Management Platform with RESTful API & Result Tracking System",
@@ -197,7 +317,46 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Eliminates physical grading delays, provides visual performance reports, and monitors quiz environments to ensure test integrity.",
           problems: "Handling heavy concurrent write requests to MongoDB when multiple classes submit exams at the exact same minute. Preventing tab-switching during exams.",
           solutions: "Structured the quiz submission backend to queue requests and optimize MongoDB writes using lean queries and update operations. Used frontend Page Visibility APIs to log and warn users when they switched tabs.",
-          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"]
+          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"],
+          githubFront: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Ass_Frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Assignment",
+          slides: [
+            {
+              src: "/quiz-image/login-page.png",
+              label: "Portal Authentication Entrance",
+              desc: "Secure login and registration entrance interface for students and teachers to access the quiz assessment platform."
+            },
+            {
+              src: "/quiz-image/student-home.png",
+              label: "Student Dashboard Hub",
+              desc: "Workspace for active students showing available exams, deadlines, overall progression metrics, and historical test reports."
+            },
+            {
+              src: "/quiz-image/take-the-quiz.png",
+              label: "Active Test Assessment Page",
+              desc: "Clean testing room layout displaying multiple-choice questions, answer options, and a precise real-time countdown timer."
+            },
+            {
+              src: "/quiz-image/quiz-result.png",
+              label: "Detailed Performance & Grade Report",
+              desc: "Summary dashboard displaying quiz scores, percentage grade, correct/incorrect answer details, and question explanation cards."
+            },
+            {
+              src: "/quiz-image/admin-dashboard.png",
+              label: "Teacher Analytics Control Panel",
+              desc: "Management dashboard for teachers containing statistical averages, passing rates, submission activities, and system usage graphs."
+            },
+            {
+              src: "/quiz-image/manage-question.png",
+              label: "Question Repository Management",
+              desc: "List of available questions in the question bank, sorted by subject and difficulty, with search and edit operations."
+            },
+            {
+              src: "/quiz-image/create-quiz.png",
+              label: "New Quiz Parameter Form",
+              desc: "Setup form to customize quiz parameters, defining title, time limit, question count, and student class visibility."
+            }
+          ]
         }
       }
     },
@@ -301,7 +460,66 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Giải quyết hạn chế của các catalogue ảnh 2D thông thường (khách hàng khó hình dung kích thước, hình dáng thực tế) và đồng bộ kho hàng lập tức với hoạt động bán lẻ.",
           problems: "Việc render nhiều asset 3D nặng trên trình duyệt của thiết bị cấu hình yếu gây giật lag giao diện. Các luồng chat thời gian thực bị mất đồng bộ khi kết nối mạng chập chờn.",
           solutions: "Áp dụng kỹ thuật lazy loading và tối ưu hóa cấp độ chi tiết (LOD) cho ba.js để giảm số lượng đa giác. Thiết kế hàng đợi sự kiện Socket.io kết hợp local storage để lưu tạm tin nhắn khi mất mạng.",
-          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"]
+          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"],
+          githubFront: "https://github.com/TonTon1410/furnimart-web",
+          githubBack: "https://github.com/Oggie26/FurniMart-BE",
+          academicInstitution: "Đại học FPT (TP. HCM, 12/2024)",
+          projectCode: "FA25SE153 | Nhóm GFA25SE147",
+          teamTitle: "Thành viên nhóm dự án",
+          teamMembers: [
+            "Phan Hoàng Nam (Trưởng nhóm) - SE173453",
+            "Phạm Văn Toàn - SE172763",
+            "Lê Nguyễn Thanh Phong - SE130383",
+            "Đỗ Thị Thu Hằng - SE161271",
+            "Trần Ngọc Yên Thảo - SE161001"
+          ],
+          supervisorTitle: "Giảng viên hướng dẫn",
+          supervisorName: "Thầy Nguyễn Minh Sang",
+          featuresTitle: "Các tính năng & Module cốt lõi",
+          featuresScope: [
+            "FE-01: Xác thực phân quyền (Khách hàng, Nhân viên, Giao hàng, Quản lý, Admin)",
+            "FE-02: Cửa hàng trực tuyến (Xem chi tiết đồ nội thất 3D, thanh toán VNPay QR)",
+            "FE-04 & FE-05: Dashboard của Nhân viên & Quản lý (Quản lý tồn kho, duyệt đơn hàng)",
+            "FE-06 & FE-10: Quy trình giao hàng nội bộ & Bản đồ sơ đồ kệ kho kệ hàng",
+            "FE-11: Hệ thống trò chuyện thời gian thực (Socket.io chat nhân viên & khách hàng)"
+          ],
+          slides: [
+            {
+              src: "/furnimart-image/home-page.png",
+              label: "Trang chủ của Khách hàng",
+              desc: "Trang chủ thương mại điện tử tối giản với giao diện biểu ngữ giới thiệu công nghệ tương tác 3D trực quan."
+            },
+            {
+              src: "/furnimart-image/product-catalog.png",
+              label: "Trang Danh mục Sản phẩm & Bộ lọc",
+              desc: "Thiết kế giao diện danh mục sản phẩm hiển thị dạng lưới kèm theo thanh bộ lọc phân loại."
+            },
+            {
+              src: "/furnimart-image/product-detail-3d.png",
+              label: "Trang Chi tiết Sản phẩm tích hợp 3D/AR",
+              desc: "Khách hàng có thể tương tác trực quan với mô hình đồ nội thất 3D (xoay, phóng to bằng Three.js) và xem thông tin chi tiết của sản phẩm."
+            },
+            {
+              src: "/furnimart-image/checkout-out.png",
+              label: "Trang Xác nhận Đặt hàng & Chọn Phương thức Thanh toán",
+              desc: "Giao diện cổng đặt hàng hiển thị tóm tắt giỏ hàng, thông tin địa chỉ giao nhận và tùy chọn thanh toán qua VNPAY hoặc COD."
+            },
+            {
+              src: "/furnimart-image/pos-dashboard.png",
+              label: "Bảng POS Bán hàng tại Quầy",
+              desc: "Giao diện bán hàng tại quầy dành cho nhân viên cửa hàng, hỗ trợ tạo đơn hàng nhanh, chọn phương thức thanh toán và tích hợp bản đồ định vị."
+            },
+            {
+              src: "/furnimart-image/dashboard-seller.png",
+              label: "Bàn Làm việc & Dashboard của Nhân viên",
+              desc: "Trang quản trị hiển thị biểu đồ hiệu suất làm việc ngày, thống kê đơn chờ xác nhận, cảnh báo tồn kho và quản lý danh sách tin nhắn hỗ trợ khách hàng."
+            },
+            {
+              src: "/furnimart-image/warehouse-layout.png",
+              label: "Sơ đồ Bố trí Kệ kho Hàng trực quan",
+              desc: "Bản đồ phân chia kệ kho hàng theo khu vực, hiển thị chi tiết mã ô chứa, sức chứa sản phẩm và danh sách sản phẩm thực tế trong từng ô."
+            }
+          ]
         },
         trading: {
           title: "Sàn giao dịch xe điện & Pin cũ với chat trực tiếp & Tích hợp thanh toán PayPal",
@@ -310,7 +528,51 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Giải quyết việc thiếu các nền tảng chuyên biệt và an toàn cho linh kiện xe điện, nơi giao tiếp giữa người mua - người bán và kiểm định pin là tối quan trọng.",
           problems: "Bảo mật các endpoint giao dịch tài chính trước các hành vi tấn công giả mạo và thiết kế lược đồ cơ sở dữ liệu MySQL phức tạp liên quan đến xe - pin.",
           solutions: "Tích hợp PayPal SDK với quy trình xác thực giao dịch phía backend qua webhook. Xây dựng index tối ưu trên cơ sở dữ liệu MySQL thông qua Sequelize ORM để ngăn ngừa các câu truy vấn chậm.",
-          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"]
+          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"],
+          githubFront: "https://github.com/PhanKhanhSE/used-ev-battery-marketplace-frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU-SWP391-Fall2025-BackEnd",
+          slides: [
+            {
+              src: "/ev-battery-image/home-page.png",
+              label: "Trang chủ Sàn Giao dịch",
+              desc: "Trang chủ hiển thị danh sách tin đăng nổi bật, dòng sản phẩm xe điện và pin cùng bảng giá thị trường mới nhất."
+            },
+            {
+              src: "/ev-battery-image/login.png",
+              label: "Cổng Đăng nhập Thành viên Bảo mật",
+              desc: "Giao diện đăng nhập và đăng ký tài khoản bảo mật dành cho người mua và người bán, nêu bật các lợi ích thành viên như đăng tin nhanh, so sánh thông minh và hợp đồng điện tử."
+            },
+            {
+              src: "/ev-battery-image/search.png",
+              label: "Trang Tìm kiếm & Lọc Sản phẩm",
+              desc: "Bộ tìm kiếm nâng cao cho phép lọc xe và pin theo thương hiệu, giá cả, khu vực và các chỉ số sức khỏe của pin (SoH)."
+            },
+            {
+              src: "/ev-battery-image/detail.png",
+              label: "Trang Chi tiết Tin đăng Xe & Pin",
+              desc: "Trang thông tin chi tiết hiển thị đầy đủ thông số kỹ thuật xe điện, tình trạng pin, giấy tờ chứng nhận an toàn và thông tin người bán."
+            },
+            {
+              src: "/ev-battery-image/post-page.png",
+              label: "Đăng tin Bán hàng Mới",
+              desc: "Biểu mẫu đăng tin trực quan cho phép nhập chi tiết thông tin xe hoặc pin, đăng tải hình ảnh và điền các chỉ số kỹ thuật liên quan."
+            },
+            {
+              src: "/ev-battery-image/chat.png",
+              label: "Trò chuyện Trực tiếp Thời gian Thực",
+              desc: "Kênh chat thời gian thực giữa người mua và người bán hỗ trợ đàm phán giá cả và trao đổi thông tin giao dịch trực tiếp."
+            },
+            {
+              src: "/ev-battery-image/admin-dashboard.png",
+              label: "Bảng Quản trị Hệ thống (Admin)",
+              desc: "Bảng điều khiển dành cho quản trị viên theo dõi người dùng, duyệt tin đăng bán hàng, thống kê giao dịch và quản lý các báo cáo vi phạm."
+            },
+            {
+              src: "/ev-battery-image/api-docs_.png",
+              label: "Tài liệu API Backend (Swagger)",
+              desc: "Tài liệu Swagger tự động hóa liệt kê toàn bộ các RESTful API endpoints của hệ thống, hỗ trợ phát triển và tích hợp frontend nhanh chóng."
+            }
+          ]
         },
         quiz: {
           title: "Hệ thống quản lý thi trắc nghiệm trực tuyến với RESTful API & Theo dõi kết quả",
@@ -319,7 +581,46 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Loại bỏ sự chậm trễ của việc chấm bài thủ công, cung cấp biểu đồ trực quan về kết quả và giám sát tính minh bạch của bài kiểm tra.",
           problems: "Gặp tình trạng quá tải khi hàng loạt học sinh cùng nhấn nút nộp bài vào cùng một phút. Học sinh chuyển tab để tra cứu tài liệu.",
           solutions: "Thiết kế cơ chế nộp bài hàng đợi ở backend và tối ưu hóa ghi MongoDB bằng các câu lệnh cập nhật tinh gọn. Sử dụng Page Visibility API phía frontend để ghi nhận và cảnh báo số lần học sinh rời khỏi tab thi.",
-          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"]
+          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"],
+          githubFront: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Ass_Frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Assignment",
+          slides: [
+            {
+              src: "/quiz-image/login-page.png",
+              label: "Trang Đăng nhập Cổng Kiểm tra",
+              desc: "Giao diện xác thực bảo mật dành cho học sinh và giáo viên truy cập vào hệ thống làm bài kiểm tra trực tuyến."
+            },
+            {
+              src: "/quiz-image/student-home.png",
+              label: "Bảng điều khiển của Học sinh",
+              desc: "Bàn làm việc của học sinh hiển thị danh sách các bài thi đang mở, tiến độ học tập và lịch sử kết quả thi trước đó."
+            },
+            {
+              src: "/quiz-image/take-the-quiz.png",
+              label: "Giao diện Làm bài thi Trực tuyến",
+              desc: "Màn hình làm bài thi hiển thị câu hỏi trắc nghiệm, các lựa chọn đáp án cùng bộ đếm ngược thời gian làm bài chính xác."
+            },
+            {
+              src: "/quiz-image/quiz-result.png",
+              label: "Kết quả Kiểm tra & Thống kê",
+              desc: "Trang tổng kết bài làm hiển thị điểm số đạt được, danh sách câu trả lời đúng/sai và lời giải thích chi tiết cho từng câu."
+            },
+            {
+              src: "/quiz-image/admin-dashboard.png",
+              label: "Bảng Thống kê của Giáo viên (Admin)",
+              desc: "Bàn làm việc của quản trị viên và giáo viên hiển thị biểu đồ thống kê điểm số trung bình, tỷ lệ hoàn thành bài thi và hoạt động hệ thống."
+            },
+            {
+              src: "/quiz-image/manage-question.png",
+              label: "Quản lý Ngân hàng Câu hỏi",
+              desc: "Giao diện hiển thị danh sách các câu hỏi kiểm tra kèm bộ lọc môn học, độ khó và chức năng tạo, sửa, xóa nhanh."
+            },
+            {
+              src: "/quiz-image/create-quiz.png",
+              label: "Tạo Đề thi Mới",
+              desc: "Biểu mẫu thiết lập tham số bài thi mới gồm tên bài thi, thời gian làm bài, số lượng câu hỏi và phân quyền lớp học tham gia."
+            }
+          ]
         }
       }
     },
@@ -423,7 +724,66 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Résout les limites des catalogues 2D statiques qui créent de l'incertitude chez les acheteurs sur l'encombrement des meubles, et synchronise instantanément les niveaux de stocks.",
           problems: "Le rendu de multiples fichiers 3D lourds causait des ralentissements majeurs sur les smartphones d'entrée de gamme. Les conversations perdaient la connexion lors de micro-coupures.",
           solutions: "Mise en œuvre du chargement différé (lazy loading) et optimisation des niveaux de détails pour three.js. Création d'une file d'attente d'événements Socket.io avec sauvegarde locale en cas de perte réseau.",
-          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"]
+          techStack: ["ReactJS", "Vite", "TypeScript", "TailwindCSS", "Socket.io", "Three.js"],
+          githubFront: "https://github.com/TonTon1410/furnimart-web",
+          githubBack: "https://github.com/Oggie26/FurniMart-BE",
+          academicInstitution: "Université FPT (HCM, 12/2024)",
+          projectCode: "FA25SE153 | Équipe GFA25SE147",
+          teamTitle: "Équipe du Projet Capstone",
+          teamMembers: [
+            "Phan Hoàng Nam (Chef d'équipe) - SE173453",
+            "Phạm Văn Toàn - SE172763",
+            "Lê Nguyễn Thanh Phong - SE130383",
+            "Đỗ Thị Thu Hằng - SE161271",
+            "Trần Ngọc Yên Thảo - SE161001"
+          ],
+          supervisorTitle: "Directeur Académique",
+          supervisorName: "M. Nguyễn Minh Sang",
+          featuresTitle: "Modules & Fonctionnalités Clés",
+          featuresScope: [
+            "FE-01: Authentification multi-rôles (Client, Personnel de magasin, Livreur, Manager, Admin)",
+            "FE-02: Boutique client interactive (Visualisation 3D, filtres dynamiques, commande immédiate)",
+            "FE-04 & FE-05: Dashboard d'opérations (Alertes de stocks, validations, rapports)",
+            "FE-06 & FE-10: Flux de livraison interne & disposition de grille d'entrepôt interactive",
+            "FE-11: Messagerie en temps réel (Chat client via Socket.io & notifications de commande)"
+          ],
+          slides: [
+            {
+              src: "/furnimart-image/home-page.png",
+              label: "Page d'Accueil Client",
+              desc: "Une page d'accueil e-commerce minimaliste présentant la bannière principale promouvant le visualiseur de meubles 3D interactif."
+            },
+            {
+              src: "/furnimart-image/product-catalog.png",
+              label: "Grille de Produits & Filtrage Client",
+              desc: "Interface de catalogue affichant les cartes de meubles, les filtres de catégories et les variations de produits."
+            },
+            {
+              src: "/furnimart-image/product-detail-3d.png",
+              label: "Page Détail Produit avec Visionneuse 3D/AR",
+              desc: "Permet aux clients d'interagir avec les modèles 3D à l'aide de Three.js, ainsi que de vérifier les stocks par succursale."
+            },
+            {
+              src: "/furnimart-image/checkout-out.png",
+              label: "Confirmation de Commande & Sélection de Paiement",
+              desc: "Page de facturation contenant le résumé du panier, l'adresse de livraison et la sélection des modes de paiement (VNPAY/COD)."
+            },
+            {
+              src: "/furnimart-image/pos-dashboard.png",
+              label: "Terminal Dashboard Vente POS au Comptoir",
+              desc: "Panneau de caisse complet en mode sombre pour les employés, prenant en charge la recherche de produits, le panier et la localisation par carte."
+            },
+            {
+              src: "/furnimart-image/dashboard-seller.png",
+              label: "Dashboard d'Opérations de l'Employé",
+              desc: "Tableau de bord affichant les approbations de commandes, les alertes de stock, les graphiques d'activité et la liste de chat actif."
+            },
+            {
+              src: "/furnimart-image/warehouse-layout.png",
+              label: "Carte de Disposition des Étagères de l'Entrepôt",
+              desc: "Visualisation en temps réel de la disposition du stockage, affichant les capacités et la liste des articles de chaque emplacement."
+            }
+          ]
         },
         trading: {
           title: "Plateforme de Vente de Véhicules Électriques et de Batteries d'Occasion",
@@ -432,7 +792,51 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Répond à l'absence de plateformes sécurisées dédiées aux composants de VE, où la communication acheteur-vendeur et les scores de santé de la batterie sont clés pour sécuriser la transaction.",
           problems: "Sécurisation des points de terminaison des transactions financières contre la falsification et gestion de schémas de base de données relationnels MySQL complexes.",
           solutions: "Intégration du SDK PayPal avec vérification de capture de paiement côté serveur par webhooks. Optimisation des index sur la base de données MySQL via Sequelize ORM pour éviter des temps de réponse lents.",
-          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"]
+          techStack: ["Node.js", "ExpressJS", "MySQL", "Sequelize ORM", "JWT Auth", "PayPal API"],
+          githubFront: "https://github.com/PhanKhanhSE/used-ev-battery-marketplace-frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU-SWP391-Fall2025-BackEnd",
+          slides: [
+            {
+              src: "/ev-battery-image/home-page.png",
+              label: "Page d'Accueil de la Plateforme",
+              desc: "Page d'accueil affichant les annonces vedettes de véhicules électriques et de batteries, les guides d'achat et les prix du marché."
+            },
+            {
+              src: "/ev-battery-image/login.png",
+              label: "Portail de Connexion Sécurisé",
+              desc: "Une page d'authentification élégante pour les acheteurs et vendeurs, mettant en avant les avantages des membres (création d'annonces, comparaison intelligente et contrats de batteries sécurisés)."
+            },
+            {
+              src: "/ev-battery-image/search.png",
+              label: "Recherche & Filtres Avancés",
+              desc: "Moteur de recherche avancé permettant de filtrer les véhicules électriques et les batteries par marque, prix, localisation et l'état de santé (SoH)."
+            },
+            {
+              src: "/ev-battery-image/detail.png",
+              label: "Détails de l'Annonce EV / Batterie",
+              desc: "Page complète affichant les spécifications du véhicule électrique, l'état de santé de la batterie et le contact du vendeur."
+            },
+            {
+              src: "/ev-battery-image/post-page.png",
+              label: "Créer une Nouvelle Annonce",
+              desc: "Formulaire intuitif permettant aux vendeurs de publier de nouvelles annonces, de charger des photos et de définir les spécifications."
+            },
+            {
+              src: "/ev-battery-image/chat.png",
+              label: "Messagerie en Temps Réel",
+              desc: "Chat en temps réel via Socket.io entre acheteurs et vendeurs pour négocier et finaliser les détails de la transaction."
+            },
+            {
+              src: "/ev-battery-image/admin-dashboard.png",
+              label: "Console d'Administration Système",
+              desc: "Tableau de bord d'administration pour gérer les utilisateurs, approuver les annonces, consulter les logs et gérer les signalements."
+            },
+            {
+              src: "/ev-battery-image/api-docs_.png",
+              label: "Documentation API Backend (Swagger)",
+              desc: "Documentation interactive Swagger répertoriant tous les endpoints API RESTful pour faciliter l'intégration frontend."
+            }
+          ]
         },
         quiz: {
           title: "Plateforme de Gestion de Quiz en Ligne avec API REST et Suivi de Résultats",
@@ -441,7 +845,46 @@ export const translations: Record<'en' | 'vi' | 'fr', TranslationSchema> = {
           solves: "Élimine les délais de correction manuelle, fournit des graphiques de performance et surveille l'environnement des quiz pour assurer l'intégrité de l'évaluation.",
           problems: "Traitement de requêtes d'écriture massives et simultanées sur MongoDB lors des soumissions de fin d'examen. Triche par changement d'onglet.",
           solutions: "Conception d'une file d'attente backend pour les soumissions et requêtes MongoDB optimisées. Utilisation des API Page Visibility au frontend pour enregistrer et alerter en cas de changement d'onglet.",
-          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"]
+          techStack: ["ReactJS", "Redux Toolkit", "Node.js", "ExpressJS", "MongoDB", "Mongoose"],
+          githubFront: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Ass_Frontend",
+          githubBack: "https://github.com/ThuHang2604/FPTU_FA25_SDN301m-Assignment",
+          slides: [
+            {
+              src: "/quiz-image/login-page.png",
+              label: "Portail d'Authentification Sécurisé",
+              desc: "Interface de connexion sécurisée pour les étudiants et les enseignants afin d'accéder à la plateforme d'évaluation en ligne."
+            },
+            {
+              src: "/quiz-image/student-home.png",
+              label: "Tableau de Bord de l'Étudiant",
+              desc: "Espace de travail de l'étudiant affichant les quiz ouverts, les dates limites, la progression globale et l'historique des résultats."
+            },
+            {
+              src: "/quiz-image/take-the-quiz.png",
+              label: "Interface de Session de Test Actif",
+              desc: "Gabarit de salle de test affichant les questions à choix multiples, les options de réponse et un compte à rebours précis en temps réel."
+            },
+            {
+              src: "/quiz-image/quiz-result.png",
+              label: "Rapport de Performance Détaillé",
+              desc: "Tableau de bord récapitulatif affichant les notes, le pourcentage de réussite, le détail des réponses correctes/incorrectes et les explications."
+            },
+            {
+              src: "/quiz-image/admin-dashboard.png",
+              label: "Panneau de Contrôle et d'Analyses Enseignant",
+              desc: "Tableau de bord pour les enseignants contenant les moyennes, les taux de réussite, l'activité de soumission et les rapports."
+            },
+            {
+              src: "/quiz-image/manage-question.png",
+              label: "Gestion de la Banque de Questions",
+              desc: "Liste des questions de test triables par matière et difficulté, avec options de filtrage et de modification."
+            },
+            {
+              src: "/quiz-image/create-quiz.png",
+              label: "Formulaire de Paramètres de Quiz",
+              desc: "Formulaire permettant de personnaliser les quiz (titre, durée, nombre de questions et classes autorisées)."
+            }
+          ]
         }
       }
     },
