@@ -50,7 +50,7 @@ function Projects() {
                 {/* Visual Panel */}
                 <div className="relative h-56 overflow-hidden bg-slate-200 dark:bg-slate-950">
                   <img
-                    src="/default.jpg"
+                    src={project.slides?.[0]?.src || "/default.jpg"}
                     alt={project.title}
                     className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                   />
@@ -82,7 +82,7 @@ function Projects() {
                       {project.techStack.map((tech, idx) => (
                         <span
                           key={idx}
-                          className="inline-flex items-center rounded-lg bg-white dark:bg-slate-950 px-2.5 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-450 border border-slate-200/50 dark:border-slate-800/80 shadow-xs"
+                          className="inline-flex items-center rounded-lg bg-white dark:bg-slate-950 px-2.5 py-1 text-[10px] font-bold text-slate-600 dark:text-slate-400 border border-slate-200/50 dark:border-slate-800/80 shadow-xs"
                         >
                           {tech}
                         </span>

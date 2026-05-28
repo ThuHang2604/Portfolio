@@ -26,6 +26,15 @@ body {
   color: #f8fafc;
 }
 
+/* Fix text caret cursors appearing in non-input places */
+*:not(input):not(textarea):not([contenteditable]):not([contenteditable="true"]) {
+  caret-color: transparent;
+}
+
+input, textarea, [contenteditable], [contenteditable="true"] {
+  caret-color: auto;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;

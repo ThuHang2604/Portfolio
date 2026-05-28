@@ -12,7 +12,7 @@ function Footer() {
           {/* Brand Column */}
           <div>
             <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-              Do Thi Thu Hang
+              Thu Hang
             </h3>
             <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
               {t.hero.role}
