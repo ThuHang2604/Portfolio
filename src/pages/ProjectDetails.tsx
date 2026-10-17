@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { useLanguage } from "../components/LanguageContext";
-import { ArrowLeft, ChevronLeft, ChevronRight, Server, Compass, AlertCircle, CheckCircle, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Server, Compass, AlertCircle, CheckCircle, ZoomIn } from "lucide-react";
 import { GithubIcon } from "../components/SocialIcons";
+import { ImageViewerModal } from "../components/ui/ImageViewerModal";
 
 const getMockUrl = (src: string) => {
   if (src.includes("/furnimart-image/")) {
@@ -160,35 +161,37 @@ function ProjectDetails() {
               <div className="flex items-center gap-1 shrink-0">
                 <button 
                   onClick={() => setIsLightboxOpen(true)}
-                  className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-805 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer"
-                  title={language === 'vi' ? 'Toàn màn hình' : language === 'fr' ? 'Plein écran' : 'Fullscreen'}
+                  className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer"
+                  title={language === 'vi' ? 'Phóng to / Toàn màn hình' : language === 'fr' ? 'Zoom / Plein écran' : 'Zoom / Fullscreen'}
                 >
-                  <Maximize2 className="h-4 w-4" />
+                  <ZoomIn className="h-4 w-4" />
                 </button>
               </div>
             </div>
             
             {/* Screenshot Frame Area */}
-            <div className="relative group overflow-hidden bg-slate-50 dark:bg-slate-900/40 flex items-center justify-center p-3 sm:p-4 min-h-[300px] sm:min-h-[420px] lg:min-h-[480px]">
+            <div 
+              onClick={() => setIsLightboxOpen(true)}
+              className="relative group overflow-hidden bg-slate-50 dark:bg-slate-900/40 flex items-center justify-center p-3 sm:p-4 min-h-[300px] sm:min-h-[420px] lg:min-h-[480px] cursor-zoom-in"
+            >
               <img
                 src={slides[currentSlide].src}
                 alt={`${project.title} - ${slides[currentSlide].label}`}
-                className="w-full h-auto max-h-[300px] sm:max-h-[420px] lg:max-h-[480px] object-contain rounded-lg transition-transform duration-500 shadow-xs select-none"
+                className="w-full h-auto max-h-[300px] sm:max-h-[420px] lg:max-h-[480px] object-contain rounded-lg transition-transform duration-500 group-hover:scale-[1.02] shadow-xs select-none"
               />
               
               {/* Hover Dark Overlay Zoom Indicator */}
               <div 
-                onClick={() => setIsLightboxOpen(true)}
-                className="absolute inset-0 bg-slate-950/20 dark:bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-zoom-in"
+                className="absolute inset-0 bg-slate-950/25 dark:bg-slate-950/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
               >
-                <div className="flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-slate-900/90 backdrop-blur-xs text-white text-xs font-bold shadow-lg border border-white/10 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300">
-                  <Maximize2 className="h-4 w-4" />
+                <div className="flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-slate-900/90 backdrop-blur-xs text-white text-xs font-bold shadow-xl border border-white/15 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  <ZoomIn className="h-4 w-4 text-indigo-400" />
                   <span>
                     {language === 'vi' 
-                      ? 'Xem toàn màn hình' 
+                      ? 'Nhấp để xem và phóng to chi tiết' 
                       : language === 'fr' 
-                      ? 'Plein écran (qualité originale)' 
-                      : 'View full screen (original resolution)'}
+                      ? 'Cliquer pour zoomer en détail' 
+                      : 'Click to zoom & inspect details'}
                   </span>
                 </div>
               </div>
@@ -338,69 +341,15 @@ function ProjectDetails() {
 
       </div>
 
-      {/* Fullscreen Lightbox Modal */}
-      {isLightboxOpen && (
-        <div 
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/95 backdrop-blur-md p-4 cursor-zoom-out animate-fade-in"
-          onClick={() => setIsLightboxOpen(false)}
-        >
-          {/* Top Header of Lightbox */}
-          <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-white select-none pointer-events-none">
-            <div className="bg-slate-900/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10 text-xs font-semibold">
-              {slides[currentSlide].label}
-            </div>
-            <button 
-              className="p-2 rounded-lg bg-slate-900/80 backdrop-blur-xs border border-white/10 hover:bg-slate-800 transition-colors pointer-events-auto cursor-pointer"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsLightboxOpen(false);
-              }}
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          {/* Main Image */}
-          <div className="relative max-w-7xl max-h-[80vh] w-full flex items-center justify-center pointer-events-none select-none">
-            <img
-              src={slides[currentSlide].src}
-              alt={slides[currentSlide].label}
-              className="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl border border-white/5 animate-scale-in"
-            />
-          </div>
-
-          {/* Slide Info Footer */}
-          <div className="absolute bottom-6 left-6 right-6 max-w-xl mx-auto text-center pointer-events-none select-none">
-            <p className="text-xs text-slate-300 bg-slate-900/80 backdrop-blur-xs px-4 py-2.5 rounded-xl border border-white/10">
-              {slides[currentSlide].desc}
-            </p>
-          </div>
-
-          {/* Left/Right controls inside Lightbox */}
-          <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevSlide();
-              }}
-              className="p-3 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-white/10 transition-colors pointer-events-auto cursor-pointer"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
-              className="p-3 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-white/10 transition-colors pointer-events-auto cursor-pointer"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Image Zoom & Pan Viewer Modal */}
+      <ImageViewerModal
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        slides={slides}
+        currentIndex={currentSlide}
+        onIndexChange={setCurrentSlide}
+        language={language}
+      />
 
     </div>
   );
